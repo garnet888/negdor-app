@@ -1,9 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { screens } from "./src/constants/screens";
-import { colors } from "./src/constants/constColors";
-import Header from "./src/components/Header/Header";
+import { screens } from "./src/lib/screens";
+import { colors } from "./src/lib/constColors";
+import Header from "./src/utils/Header/Header";
 
 import Login from "./src/screens/Login/Login";
 import Signup from "./src/screens/Signup/Signup";

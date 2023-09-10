@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import Search from "../../ui/Search/Search";
 import { gotoScreen } from "../../lib/gotoFuncs";
-import { screens } from "../../constants/screens";
+import { screens } from "../../lib/screens";
 
 import homeCss from "./homeCss";
 

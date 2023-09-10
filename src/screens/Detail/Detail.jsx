@@ -1,14 +1,16 @@
 import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { gotoScreen } from "../../lib/gotoFuncs";
-import { screens } from "../../constants/screens";
-import { colors } from "../../constants/constColors";
+import { View, Image, ScrollView, Text } from "react-native";
+
+import CompanyDesc from "../../components/CompanyDetail/CompanyDesc/CompanyDesc";
+import CompanyRate from "../../components/CompanyDetail/CompanyRate/CompanyRate";
+import CompanyComfort from "../../components/CompanyDetail/CompanyComfort/CompanyComfort";
+import AmbientPhotos from "../../components/CompanyDetail/AmbientPhotos/AmbientPhotos";
+import CompanyMenu from "../../components/CompanyDetail/CompanyMenu/CompanyMenu";
+import Reviews from "../../components/CompanyDetail/Review/Reviews";
 
 import detailCss from "./detailCss";
 
 const Detail = ({ route, navigation }) => {
-  const isOpen = true;
   const { id, logo } = route.params;
 
   return (
@@ -30,52 +32,33 @@ const Detail = ({ route, navigation }) => {
       </View>
 
       <View style={detailCss.content}>
-        <Text style={detailCss.name}>Organization Name</Text>
+        <CompanyDesc navigation={navigation} />
 
-        <View style={detailCss.infos}>
-          {/* &bull; */}
+        <>
+          <Text style={detailCss.title}>Үнэлгээ</Text>
+          <CompanyRate />
+        </>
 
-          <Text>
-            Япон хоол
-            <Text> • </Text>
-          </Text>
+        <>
+          <Text style={detailCss.title}>Орчин, тав тухтай байдал</Text>
+          <CompanyComfort />
+        </>
 
-          <Text>
-            <AntDesign name="star" size={16} color={colors.starColor} />
-            {" 4.6"}
-            <Text> • </Text>
-          </Text>
+        <AmbientPhotos />
 
-          <Text>
-            236 сэтгэгдэл
-            <Text> • </Text>
-          </Text>
+        <>
+          <Text style={detailCss.title}>Breakfast</Text>
+          <CompanyMenu />
 
-          <Text style={isOpen ? detailCss.openTxt : detailCss.closeTxt}>
-            {isOpen ? "Нээлттэй" : "Хаалттай"}
-          </Text>
-        </View>
+          <Text style={detailCss.title}>Lunch</Text>
+          <CompanyMenu />
+        </>
 
-        <Text>+976 7777-7777</Text>
-
-        <Text>Хүргэлтгүй, утсаар захиалга өгч очиж авах боломжтой</Text>
-
-        <View style={detailCss.socials}>
-          <Text
-            style={detailCss.socialsItem}
-            onPress={() =>
-              gotoScreen({ navigation, screen: screens.locationScn })
-            }
-          >
-            L
-          </Text>
-          <Text style={detailCss.socialsItem}>F</Text>
-          <Text style={detailCss.socialsItem}>I</Text>
-
-          <View style={detailCss.socialWeb}>
-            <Text style={detailCss.socialWeb_text}>WWW</Text>
-          </View>
-        </View>
+        <>
+          <View style={detailCss.line} />
+          <Text style={detailCss.title}>Сэтгэгдэл</Text>
+          <Reviews />
+        </>
       </View>
     </ScrollView>
   );

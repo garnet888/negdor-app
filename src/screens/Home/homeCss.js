@@ -30,15 +30,11 @@ export default StyleSheet.create({
   },
 
   iconVw: {
-    backgroundColor: "gray",
-
     width: 80,
     height: 80,
 
     justifyContent: "center",
     alignItems: "center",
-
-    borderRadius: 8,
   },
   icon: {
     width: 40,
