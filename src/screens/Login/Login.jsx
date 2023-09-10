@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import MyButton from "../../ui/MyButton/MyButton";
 import MyLink from "../../ui/MyLink/MyLink";
 import { gotoScreen } from "../../lib/gotoFuncs";
-import { screens } from "../../constants/screens";
+import { screens } from "../../lib/screens";
 import MyModal from "../../ui/MyModal/MyModal";
 
 import loginCss from "./loginCss";

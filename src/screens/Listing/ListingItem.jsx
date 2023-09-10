@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { gotoScreen } from "../../lib/gotoFuncs";
-import { screens } from "../../constants/screens";
-import RatedStars from "../../components/RatedStars/RatedStars";
+import { screens } from "../../lib/screens";
+import RatedStars from "../../utils/RatedStars/RatedStars";
 
 import listingItemCss from "./listingItemCss";
 

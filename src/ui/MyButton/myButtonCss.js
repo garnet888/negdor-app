@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../constants/constColors";
+import { colors } from "../../lib/constColors";
 
 export default myButtonCss = StyleSheet.create({
   container: {

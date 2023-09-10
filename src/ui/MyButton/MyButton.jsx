@@ -3,7 +3,13 @@ import { Text, TouchableOpacity } from "react-native";
 
 import myButtonCss from "./myButtonCss";
 
-const MyButton = ({ text, onPress, outline = false, buttonCss, textCss }) => {
+const MyButton = ({
+  text = "",
+  onPress,
+  outline = false,
+  buttonCss,
+  textCss,
+}) => {
   return (
     <TouchableOpacity
       style={[

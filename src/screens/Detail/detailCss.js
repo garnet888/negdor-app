@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../constants/constColors";
+import { colors } from "../../lib/constColors";
 
 export default StyleSheet.create({
   container: {
@@ -37,53 +37,24 @@ export default StyleSheet.create({
   },
 
   content: {
-    gap: 20,
-
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
-  name: {
-    fontSize: 26,
-    fontWeight: "500",
-  },
-
-  infos: {
-    flexDirection: "row",
-    alignItems: "center",
-
-    marginTop: -20,
-  },
-  openTxt: {
-    color: colors.openColor,
-    fontWeight: "500",
-  },
-  closeTxt: {
-    color: "red",
-    fontWeight: "500",
-  },
-
-  socials: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  socialsItem: {
-    fontSize: 28,
-    fontWeight: "500",
-  },
-  socialWeb: {
-    width: 40,
-    height: 40,
-
-    justifyContent: "center",
-    alignItems: "center",
-
-    backgroundColor: colors.primary,
-    borderRadius: 40,
-  },
-  socialWeb_text: {
-    fontSize: 10,
+  title: {
+    fontSize: 22,
     fontWeight: "500",
 
-    color: "white",
+    marginTop: 28,
+    marginBottom: 10,
+  },
+  line: {
+    width: "100%",
+    height: 2,
+
+    backgroundColor: colors.gray,
+    borderRadius: 60,
+
+    marginTop: 40,
+    marginBottom: -20,
   },
 });
