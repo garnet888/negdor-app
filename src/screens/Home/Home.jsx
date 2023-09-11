@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import Search from "../../ui/Search/Search";
+import Search from "../../ui/Search";
 import { gotoScreen } from "../../lib/gotoFuncs";
 import { screens } from "../../lib/screens";
 

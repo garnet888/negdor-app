@@ -2,11 +2,6 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../lib/constColors";
 
 export default StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-    borderRadius: 8,
-  },
-
   photos: {
     position: "relative",
 
