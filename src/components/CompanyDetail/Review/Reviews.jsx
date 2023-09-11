@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import MyInput from "../../../ui/MyInput";
+import MyButton from "../../../ui/MyButton";
 import RatedStars from "../../../utils/RatedStars/RatedStars";
-import MyInput from "../../../ui/MyInput/MyInput";
-import MyButton from "../../../ui/MyButton/MyButton";
 
 import reviewCss from "./reviewCss";
 
@@ -20,10 +20,10 @@ const Reviews = () => {
     <View style={reviewCss.container}>
       <RatedStars starSize={20} />
 
-      <MyInput placeholder="Сэтгэгдэл..." multiline />
-      <MyButton text="Илгээх" />
+      <MyInput placeholder="Сэтгэгдэл..." />
+      <MyButton title="Илгээх" />
 
-      <View style={reviewCss.adllReviews}>
+      <View style={reviewCss.allReviews}>
         {_reviews.map((item, idx) => (
           <View key={idx} style={reviewCss.review}>
             <View style={reviewCss.info}>

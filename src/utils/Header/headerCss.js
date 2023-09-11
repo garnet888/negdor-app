@@ -13,8 +13,23 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
   },
 
-  goBack: {
-    width: 24,
+  goBackSpace: {
+    width: 18,
     height: 24,
+  },
+
+  searchBox: {
+    width: "74%",
+  },
+
+  loginIcn: {
+    backgroundColor: "white",
+    color: colors.blue,
+
+    borderRadius: 10,
+    overflow: "hidden",
+
+    paddingHorizontal: 6,
+    paddingVertical: 4.8,
   },
 });

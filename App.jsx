@@ -20,19 +20,33 @@ export default function App() {
       <Stack.Navigator
         initialRouteName={screens.homeScn}
         screenOptions={({ navigation }) => ({
-          // animation: "none",
+          animation: "none",
           header: () => <Header navigation={navigation} />,
           contentStyle: { backgroundColor: colors.grayWhite },
         })}
       >
-        <Stack.Screen name={screens.signupScn} component={Signup} />
-        <Stack.Screen name={screens.loginScn} component={Login} />
+        <Stack.Screen
+          name={screens.signupScn}
+          component={Signup}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={screens.loginScn}
+          component={Login}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name={screens.homeScn}
           component={Home}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name={screens.listingScn} component={Listing} />
+        <Stack.Screen
+          name={screens.listingScn}
+          component={Listing}
+          options={({ navigation }) => ({
+            header: () => <Header navigation={navigation} showSearch />,
+          })}
+        />
         <Stack.Screen name={screens.detailScn} component={Detail} />
         <Stack.Screen name={screens.locationScn} component={Location} />
       </Stack.Navigator>

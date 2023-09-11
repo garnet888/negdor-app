@@ -1,14 +1,17 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 14,
-  },
+  form: {
+    gap: 10,
 
-  title: {
-    fontSize: 18,
+    paddingHorizontal: 20,
+    marginTop: 20,
+  },
+  signupBtn: {
+    marginTop: 10,
+  },
+  linkBox: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

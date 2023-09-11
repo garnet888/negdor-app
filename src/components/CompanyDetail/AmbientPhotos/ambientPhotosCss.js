@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 
-const screenWidth = Dimensions.get("window").width;
+const windowWidth = Dimensions.get("window").width;
 
 export default StyleSheet.create({
   list: {
@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
 
   photo: {
-    width: screenWidth - 100,
+    width: windowWidth - 100,
     height: "100%",
 
     borderRadius: 8,

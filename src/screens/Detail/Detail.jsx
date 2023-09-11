@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Image, ScrollView, Text } from "react-native";
+import { View, Image, Text } from "react-native";
 
+import MyKeyboardAvoiding from "../../utils/MyKeyboardAvoiding";
 import CompanyDesc from "../../components/CompanyDetail/CompanyDesc/CompanyDesc";
 import CompanyRate from "../../components/CompanyDetail/CompanyRate/CompanyRate";
 import CompanyComfort from "../../components/CompanyDetail/CompanyComfort/CompanyComfort";
@@ -14,7 +15,7 @@ const Detail = ({ route, navigation }) => {
   const { id, logo } = route.params;
 
   return (
-    <ScrollView contentContainerStyle={detailCss.container}>
+    <MyKeyboardAvoiding>
       <View style={detailCss.photos}>
         <Image
           style={detailCss.banner}
@@ -60,7 +61,7 @@ const Detail = ({ route, navigation }) => {
           <Reviews />
         </>
       </View>
-    </ScrollView>
+    </MyKeyboardAvoiding>
   );
 };
 

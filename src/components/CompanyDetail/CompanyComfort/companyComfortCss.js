@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const windowWidth = Dimensions.get("window").width;
 
 export default StyleSheet.create({
   container: {
@@ -9,11 +11,10 @@ export default StyleSheet.create({
   },
 
   list: {
+    width: windowWidth / 2 - 28,
     gap: 10,
   },
   item: {
-    width: 146,
-
     flexDirection: "row",
     alignItems: "center",
     gap: 4,

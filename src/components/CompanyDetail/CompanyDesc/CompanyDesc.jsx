@@ -1,18 +1,17 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, Linking } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { colors } from "../../../lib/constColors";
 import { screens } from "../../../lib/screens";
 import { gotoScreen } from "../../../lib/gotoFuncs";
 
 import companyDescCss from "./companyDescCss";
 
 const _direction = require("../../../../assets/direction.png");
-const _facebook = require("../../../../assets/fb-logo.png");
-const _instagram = require("../../../../assets/insta-logo.png");
+const _facebook = require("../../../../assets/facebook.png");
+const _instagram = require("../../../../assets/instagram.png");
 
 const CompanyDesc = ({ navigation }) => {
-  const isOpen = true;
+  const isOpen = false;
 
   return (
     <View style={companyDescCss.container}>
@@ -27,7 +26,7 @@ const CompanyDesc = ({ navigation }) => {
         </Text>
 
         <Text>
-          <AntDesign name="star" size={16} color={colors.starColor} />
+          <AntDesign name="star" size={16} color="orange" />
           {" 4.6"}
           <Text> • </Text>
         </Text>

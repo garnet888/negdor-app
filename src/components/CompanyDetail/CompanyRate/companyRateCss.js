@@ -6,7 +6,7 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
 
-    marginBottom: 20,
+    marginBottom: 24,
   },
   countContainer: {
     width: 90,

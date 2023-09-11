@@ -3,12 +3,12 @@ import { colors } from "../../../lib/constColors";
 
 export default StyleSheet.create({
   container: {
-    alignItems: "center",
     gap: 10,
   },
 
-  adllReviews: {
+  allReviews: {
     gap: 10,
+    marginTop: 16,
   },
 
   review: {

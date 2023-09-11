@@ -14,7 +14,7 @@ const CompanyRate = () => {
           <Text style={companyRateCss.total}>нийт үнэлсэн тоо: 5</Text>
         </View>
 
-        <RatedStars rate={4} starSize={24} />
+        <RatedStars rate={4} starSize={22} />
       </View>
 
       <LinearRate />
