@@ -1,10 +1,12 @@
-import { Platform, StyleSheet } from "react-native";
+import { Dimensions, Platform, StyleSheet } from "react-native";
+
+const windowWidth = Dimensions.get("window").width;
 
 export default StyleSheet.create({
   coverBox: {
     position: "relative",
 
-    width: "100%",
+    width: windowWidth,
     height: "50%",
   },
   cover: {
@@ -23,18 +25,23 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     flexWrap: "wrap",
-    gap: Platform.OS === "android" ? 6 : 10,
+    columnGap: Platform.OS === "android" ? 6 : 10,
+    rowGap: 10,
 
     marginHorizontal: 10,
     marginVertical: 20,
   },
 
-  iconVw: {
+  iconBox: {
     width: 80,
     height: 80,
 
     justifyContent: "center",
     alignItems: "center",
+    gap: 2,
+
+    backgroundColor: "darkgray",
+    borderRadius: 12,
   },
   icon: {
     width: 40,
@@ -45,5 +52,7 @@ export default StyleSheet.create({
   iconTxt: {
     fontSize: 12,
     textAlign: "center",
+
+    color: "white",
   },
 });

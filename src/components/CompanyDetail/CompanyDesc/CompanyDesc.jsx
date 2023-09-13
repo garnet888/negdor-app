@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity, Linking } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { screens } from "../../../lib/screens";
-import { gotoScreen } from "../../../lib/gotoFuncs";
 
 import companyDescCss from "./companyDescCss";
 
@@ -47,9 +46,7 @@ const CompanyDesc = ({ navigation }) => {
 
       <View style={companyDescCss.socials}>
         <TouchableOpacity
-          onPress={() =>
-            gotoScreen({ navigation, screen: screens.locationScn })
-          }
+          onPress={() => navigation.navigate(screens.locationScn)}
         >
           <Image style={companyDescCss.icon} source={_direction} />
         </TouchableOpacity>

@@ -1,20 +1,18 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, Image, TouchableOpacity, StatusBar } from "react-native";
 import Search from "../../ui/Search";
-import { gotoScreen } from "../../lib/gotoFuncs";
 import { screens } from "../../lib/screens";
 
 import homeCss from "./homeCss";
 
-const Home = ({ navigation }) => {
+const Home = () => {
+  const goto = useNavigation();
+
   const _id = Math.floor(Math.random() * 100);
 
   function gotoListing(cateName) {
-    gotoScreen({
-      navigation,
-      screen: screens.listingScn,
-      params: { id: _id, name: cateName },
-    });
+    goto.navigate(screens.listingScn, { id: _id, name: cateName });
   }
 
   return (
@@ -34,7 +32,7 @@ const Home = ({ navigation }) => {
         {[...Array(8)].map((_, idx) => (
           <TouchableOpacity
             key={idx}
-            style={homeCss.iconVw}
+            style={homeCss.iconBox}
             onPress={() =>
               gotoListing(idx % 2 === 0 ? "Тоглоомын газар" : "Үсчин")
             }
