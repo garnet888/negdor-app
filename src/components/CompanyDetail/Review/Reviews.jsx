@@ -33,7 +33,7 @@ const Reviews = () => {
                 color="white"
               />
 
-              <Text style={reviewCss.name}>User' name</Text>
+              <Text style={reviewCss.name}>User's name</Text>
             </View>
 
             <Text>{item}</Text>

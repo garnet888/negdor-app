@@ -1,9 +1,25 @@
 export const screens = {
-  signupScn: "Бүргүүлэх",
-  loginScn: "Нэвтрэх",
-  profileScn: "Миний булан",
-  homeScn: "Нүүр",
-  listingScn: "Алба нэгжүүд",
-  detailScn: "Дэлгэрэнгүй",
-  locationScn: "Газрын зураг",
+  homeTab: "Нүүр",
+  homeScn: "Home",
+  listingScn: "Listing",
+  detailScn: "Detail",
+
+  locationScn: "Location",
+
+  authTab: "Хэрэглэгч",
+  signupScn: "SignUp",
+  loginScn: "Login",
+  profileScn: "Profile",
+
+  settingsMenuScn: "SettingsMenu",
+  personalinfoScn: "Хувийн мэдээлэл",
+  changePasswordScn: "Нууц үг солих",
+  myCompanyScn: "Миний байгууллага",
+  noCompanyScn: "noCompany",
+  companyFormScn: "companyForm",
+
+  /*-----------------------------*/
+  myBussiness: "MyBussiness",
+  bussinessForm: "BussinessForm",
+  /*-----------------------------*/
 };
