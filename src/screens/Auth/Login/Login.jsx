@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Image } from "react-native";
 import { screens } from "../../../lib/screens";
+import { useAuthCxt } from "../../../context/AuthContext";
 import MyInput from "../../../ui/MyInput";
 import MyButton from "../../../ui/MyButton";
 import MyLink from "../../../ui/MyLink";
@@ -14,15 +15,17 @@ const _facebook = require("../../../../assets/facebook.png");
 const _google = require("../../../../assets/google.png");
 
 const Login = ({ navigation }) => {
-  const title = "Нэвтрэх";
+  const { loginHandler } = useAuthCxt();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [visibleModal, setVisibleModal] = useState(false);
 
   return (
     <MyKeyboardAvoiding>
       <MyModal visible={visibleModal} setVisible={setVisibleModal} />
 
-      <AuthCover title={title} />
+      <AuthCover title="Нэвтрэх" />
 
       <View style={loginCss.socialBox}>
         <MyLink onPress={() => setVisibleModal(true)}>
@@ -40,13 +43,21 @@ const Login = ({ navigation }) => {
       </View>
 
       <View style={loginCss.form}>
-        <MyInput placeholder="И-мэйл хаяг" />
-        <MyInput placeholder="Нууц үг" secureTextEntry />
+        <MyInput
+          placeholder="И-мэйл хаяг"
+          keyboardType="email-address"
+          onChangeText={(text) => setEmail(text)}
+        />
+        <MyInput
+          placeholder="Нууц үг"
+          secureTextEntry
+          onChangeText={(text) => setPassword(text)}
+        />
 
         <MyButton
-          title={title}
+          title="Нэвтрэх"
           buttonCss={loginCss.loginBtn}
-          onPress={() => navigation.navigate(screens.profileScn)}
+          onPress={() => loginHandler({ email, password })}
         />
 
         <View style={loginCss.linkBox}>

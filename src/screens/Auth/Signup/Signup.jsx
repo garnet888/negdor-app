@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { screens } from "../../../lib/screens";
+import { useNavigation } from "@react-navigation/native";
 import MyInput from "../../../ui/MyInput";
 import MyButton from "../../../ui/MyButton";
 import MyLink from "../../../ui/MyLink";
@@ -9,12 +9,12 @@ import AuthCover from "../../../components/AuthCover/AuthCover";
 
 import signupCss from "./signupCss";
 
-const Signup = ({ navigation }) => {
-  const title = "Бүртгүүлэх";
+const Signup = () => {
+  const goto = useNavigation();
 
   return (
     <MyKeyboardAvoiding>
-      <AuthCover title={title} />
+      <AuthCover title="Бүртгүүлэх" />
 
       <View style={signupCss.form}>
         <MyInput placeholder="Хэрэглэгчийн нэр" />
@@ -26,14 +26,14 @@ const Signup = ({ navigation }) => {
         <MyInput placeholder="Нууц үг давтах" secureTextEntry />
 
         <MyButton
-          title={title}
+          title="Бүртгүүлэх"
           buttonCss={signupCss.signupBtn}
-          onPress={() => null}
+          onPress={() => goto.goBack()}
         />
 
         <MyLink
           title="Нэвтрэх"
-          onPress={() => navigation.navigate(screens.loginScn)}
+          onPress={() => goto.goBack()}
           containerCss={signupCss.loginBtn}
         />
       </View>
