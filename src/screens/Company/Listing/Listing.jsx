@@ -1,11 +1,16 @@
 import React, { useCallback, useState } from "react";
 import { View, Text, RefreshControl, FlatList } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import ListingItem from "./ListingItem";
 
 import listingCss from "./listingCss";
 
-const Listing = ({ route, navigation }) => {
-  const { id, name } = route.params;
+const Listing = () => {
+  const goto = useNavigation();
+  const {
+    params: { id, name },
+    
+  } = useRoute();
 
   const [refreshing, setRefreshing] = useState(false);
 
@@ -36,9 +41,7 @@ const Listing = ({ route, navigation }) => {
         contentContainerStyle={listingCss.list}
         data={_DATA}
         ListEmptyComponent={() => <Text>Хоосон байна</Text>}
-        renderItem={({ item }) => (
-          <ListingItem data={item} navigation={navigation} />
-        )}
+        renderItem={({ item }) => <ListingItem data={item} goto={goto} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }

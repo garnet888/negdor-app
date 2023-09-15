@@ -9,6 +9,8 @@ import Detail from "../../screens/Company/Detail/Detail";
 
 const Stack = createNativeStackNavigator();
 
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+
 export function HomeStack() {
   return (
     <Stack.Navigator
@@ -34,7 +36,7 @@ export function HomeStack() {
         options={{
           headerBackTitleVisible: false,
           headerTitle: () => (
-            <View style={{ width: Dimensions.get("window").width - 100 }}>
+            <View style={{ width: SCREEN_WIDTH - 100 }}>
               <Search />
             </View>
           ),

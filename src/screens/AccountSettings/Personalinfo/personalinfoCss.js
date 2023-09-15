@@ -6,19 +6,35 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
 
-  imageBox: {
-    alignSelf: "center",
+  avatarContainer: {
+    position: "relative",
 
     width: 120,
     height: 120,
 
-    borderRadius: 120,
-    overflow: "hidden",
+    alignSelf: "center",
 
     marginBottom: 20,
   },
-  image: {
+  avatarBox: {
     flex: 1,
+
+    borderRadius: 120,
+    overflow: "hidden",
+  },
+  avatar: {
+    width: "100%",
+    height: "100%",
+  },
+  avatarUpload: {
+    position: "absolute",
+    bottom: -2,
+    right: -2,
+
+    backgroundColor: "rgba(168, 168, 168, 0.6)",
+    borderRadius: 24,
+
+    padding: 6,
   },
 
   saveBtn: {

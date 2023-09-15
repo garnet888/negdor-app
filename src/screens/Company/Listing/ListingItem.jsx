@@ -5,11 +5,11 @@ import RatedStars from "../../../utils/RatedStars/RatedStars";
 
 import listingItemCss from "./listingItemCss";
 
-const ListingItem = ({ data, navigation }) => {
+const ListingItem = ({ data, goto }) => {
   const _isOpen = false;
 
   function gotoDetail({ id, logo }) {
-    navigation.navigate(screens.detailScn, { id, logo });
+    goto.navigate(screens.detailScn, { id, logo });
   }
 
   return (

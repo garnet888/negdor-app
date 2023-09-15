@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import { Image, Platform, View } from "react-native";
+import { Image, Platform, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Entypo } from "@expo/vector-icons";
 import { screens } from "../../../lib/screens";
-import MyKeyboardAvoiding from "../../../utils/MyKeyboardAvoiding";
 import MyInput from "../../../ui/MyInput";
 import MyButton from "../../../ui/MyButton";
+import MyKeyboardAvoiding from "../../../utils/MyKeyboardAvoiding";
+import UploadPhoto from "../../../utils/UploadPhoto/UploadPhoto";
 
 import personalinfoCss from "./personalinfoCss";
+
+const _noIMG = require("../../../../assets/no-image.png");
 
 const Personalinfo = () => {
   const goto = useNavigation();
 
+  const [avatar, setAvatar] = useState("");
+  const [showUploadAvatar, setShowUploadAvatar] = useState(false);
   const [keyboardShown, setKeyboardShown] = useState(false);
 
   return (
@@ -19,12 +25,24 @@ const Personalinfo = () => {
       verticalMiddle={keyboardShown ? false : true}
     >
       <View style={personalinfoCss.form}>
-        <View style={personalinfoCss.imageBox}>
-          <Image
-            style={personalinfoCss.image}
-            source={{
-              uri: "https://www.gifcen.com/wp-content/uploads/2021/12/goku-4.gif",
-            }}
+        <View style={personalinfoCss.avatarContainer}>
+          <View style={personalinfoCss.avatarBox}>
+            <Image
+              style={personalinfoCss.avatar}
+              source={avatar ? { uri: avatar } : _noIMG}
+            />
+          </View>
+
+          <TouchableOpacity
+            style={personalinfoCss.avatarUpload}
+            onPress={() => setShowUploadAvatar(true)}
+          >
+            <Entypo name="camera" size={24} color="white" />
+          </TouchableOpacity>
+          <UploadPhoto
+            visible={showUploadAvatar}
+            onCancel={() => setShowUploadAvatar(false)}
+            setPhoto={setAvatar}
           />
         </View>
 

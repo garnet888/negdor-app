@@ -1,9 +1,9 @@
 import { Dimensions, StyleSheet } from "react-native";
 import { colors } from "../../lib/constColors";
 
-const windowWidth = Dimensions.get("window").width;
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
-const fullWidth = windowWidth - 80;
+const fullWidth = SCREEN_WIDTH - 80;
 const perWidth = fullWidth / 5;
 
 export default StyleSheet.create({

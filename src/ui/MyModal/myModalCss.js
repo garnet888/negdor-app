@@ -1,39 +1,35 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, Platform, StyleSheet } from "react-native";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 export default StyleSheet.create({
-  modal: {
+  container: {
     position: "relative",
-
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
 
-  container: {
+  space: {
+    flex: 1,
+  },
+
+  content: {
     position: "absolute",
-    bottom: "50%",
-    transform: [{ translateY: 50 }],
+    bottom: 0,
 
-    width: "80%",
-    height: 120,
-
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 20,
+    width: SCREEN_WIDTH,
 
     backgroundColor: "white",
-    elevation: 1.8, // Android deer shuuder gargana
-    shadowOpacity: 0.28,
-    borderRadius: 10,
+    shadowOpacity: 0.2,
+    elevation: 2, // Android deer shuuder gargana
 
-    marginHorizontal: 20,
+    borderWidth: Platform.OS === "android" ? 1 : 0,
+    borderColor: "darkgray",
+    borderBottomWidth: 0,
+
+    borderTopRightRadius: 18,
+    borderTopLeftRadius: 18,
   },
-  content: {
-    width: "100%",
-
-    flexDirection: "row",
-    justifyContent: "space-evenly",
+  hideModal: {
+    alignSelf: "center",
   },
 });

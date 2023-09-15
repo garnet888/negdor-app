@@ -1,6 +1,6 @@
 import React from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, Image, TouchableOpacity, StatusBar } from "react-native";
 import Search from "../../ui/Search";
 import { screens } from "../../lib/screens";
 
