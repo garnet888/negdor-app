@@ -1,12 +1,12 @@
 import { Dimensions, Platform, StyleSheet } from "react-native";
 
-const windowWidth = Dimensions.get("window").width;
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 export default StyleSheet.create({
   coverBox: {
     position: "relative",
 
-    width: windowWidth,
+    width: SCREEN_WIDTH,
     height: "50%",
   },
   cover: {

@@ -1,12 +1,12 @@
 import { Dimensions, StyleSheet } from "react-native";
 
-const windowWidth = Dimensions.get("window").width;
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 export default StyleSheet.create({
   container: {
     position: "relative",
 
-    width: windowWidth,
+    width: SCREEN_WIDTH,
     height: 200,
   },
 

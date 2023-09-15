@@ -5,7 +5,6 @@ import { useAuthCxt } from "../../../context/AuthContext";
 import MyInput from "../../../ui/MyInput";
 import MyButton from "../../../ui/MyButton";
 import MyLink from "../../../ui/MyLink";
-import MyModal from "../../../ui/MyModal/MyModal";
 import MyKeyboardAvoiding from "../../../utils/MyKeyboardAvoiding";
 import AuthCover from "../../../components/AuthCover/AuthCover";
 
@@ -19,20 +18,17 @@ const Login = ({ navigation }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [visibleModal, setVisibleModal] = useState(false);
 
   return (
     <MyKeyboardAvoiding>
-      <MyModal visible={visibleModal} setVisible={setVisibleModal} />
-
       <AuthCover title="Нэвтрэх" />
 
       <View style={loginCss.socialBox}>
-        <MyLink onPress={() => setVisibleModal(true)}>
+        <MyLink onPress={() => null}>
           <Image style={loginCss.icon} source={_facebook} />
         </MyLink>
 
-        <MyLink onPress={() => setVisibleModal(true)}>
+        <MyLink onPress={() => null}>
           <Image style={loginCss.icon} source={_google} />
         </MyLink>
       </View>
@@ -63,7 +59,7 @@ const Login = ({ navigation }) => {
         <View style={loginCss.linkBox}>
           <MyLink
             title="Нууц үгээ мартсан"
-            onPress={() => setVisibleModal(true)}
+            onPress={() => null}
             textCss={loginCss.linkTxt}
           />
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, StatusBar } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import MySafeArea from "../../ui/MySafeArea";
 import Search from "../../ui/Search";
@@ -9,8 +9,6 @@ import headerCss from "./headerCss";
 const Header = ({ navigation, showSearch = false }) => {
   return (
     <MySafeArea>
-      <StatusBar />
-
       <View style={headerCss.container}>
         {navigation.canGoBack() ? (
           <TouchableOpacity onPress={() => navigation.goBack()}>

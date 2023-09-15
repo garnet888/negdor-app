@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ScrollView, View } from "react-native";
+import { useScrollToTop } from "@react-navigation/native";
 import MySafeArea from "../../../ui/MySafeArea";
 import ProfileDesc from "../../../components/Profile/ProfileDesc/ProfileDesc";
 import MyReviews from "../../../components/Profile/MyReviews";
@@ -10,9 +11,12 @@ import LinearRate from "../../../utils/LinearRate/LinearRate";
 import profileCss from "./profileCss";
 
 const Profile = () => {
+  const ref = useRef(null);
+  useScrollToTop(ref);
+
   return (
     <MySafeArea>
-      <ScrollView>
+      <ScrollView ref={ref}>
         <View style={profileCss.container}>
           <ProfileDesc />
           <MyReviews />

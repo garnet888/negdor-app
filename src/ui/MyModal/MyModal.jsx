@@ -1,19 +1,24 @@
 import React from "react";
-import { View, Text, Modal } from "react-native";
-import MyButton from "../MyButton";
+import { View, Pressable, Modal, TouchableOpacity } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
 import myModalCss from "./myModalCss";
 
-const MyModal = ({ visible, setVisible }) => {
+const MyModal = ({ children, visible, onCancel }) => {
   return (
-    <Modal visible={visible} transparent={true}>
-      <View style={myModalCss.modal}>
-        <View style={myModalCss.container}>
-          <View style={myModalCss.content}>
-            <Text>Coming soon...</Text>
-          </View>
+    <Modal animationType="slide" transparent={true} visible={visible}>
+      <View style={myModalCss.container}>
+        <Pressable style={myModalCss.space} onPress={() => onCancel()} />
 
-          <MyButton title="Гарах" onPress={() => setVisible(false)} />
+        <View style={myModalCss.content}>
+          <TouchableOpacity
+            style={myModalCss.hideModal}
+            onPress={() => onCancel()}
+          >
+            <Entypo name="chevron-down" size={32} color="black" />
+          </TouchableOpacity>
+
+          {children}
         </View>
       </View>
     </Modal>
