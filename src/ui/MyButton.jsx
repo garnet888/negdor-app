@@ -4,6 +4,7 @@ import { colors } from "../lib/constColors";
 
 const MyButton = ({
   title = "",
+  disabled = false,
   onPress,
   outline = false,
   buttonCss,
@@ -11,7 +12,13 @@ const MyButton = ({
 }) => {
   return (
     <TouchableOpacity
-      style={[css.button, buttonCss, outline && css.outlineBtn]}
+      style={[
+        css.button,
+        disabled && css.disabledBtn,
+        buttonCss,
+        outline && css.outlineBtn,
+      ]}
+      disabled={disabled}
       onPress={onPress}
     >
       <Text style={[css.title, titleCss, outline && css.outlineTitle]}>
@@ -29,6 +36,9 @@ const css = StyleSheet.create({
     borderRadius: 6,
 
     padding: 10,
+  },
+  disabledBtn: {
+    opacity: 0.48,
   },
 
   title: {

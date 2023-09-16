@@ -2,6 +2,15 @@ import React from "react";
 import { StyleSheet, TextInput } from "react-native";
 
 const MyInput = (props) => {
+  /* keyboardType:
+      decimal-pad
+      email-address
+      number-pad
+      numeric
+      phone-pad
+      web-search
+  */
+
   return (
     <TextInput
       autoCapitalize="none"
