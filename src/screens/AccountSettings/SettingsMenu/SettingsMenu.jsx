@@ -1,15 +1,15 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { ActivityIndicator, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { screens } from "../../../lib/screens";
-import { useAuthCxt } from "../../../context/AuthContext";
+import { getAuthContext } from "../../../context/AuthContext";
 import MySafeArea from "../../../ui/MySafeArea";
 import MyLink from "../../../ui/MyLink";
 
 import settingsMenuCss from "./settingsMenuCss";
 
 const SettingsMenu = () => {
-  const { logoutHandler } = useAuthCxt();
+  const { isLoading, logoutHandler } = getAuthContext();
   const goto = useNavigation();
 
   const menuItems = [
@@ -32,7 +32,9 @@ const SettingsMenu = () => {
 
   function renderMenuItem(item) {
     if (item === "Гарах") {
-      return (
+      return isLoading ? (
+        <ActivityIndicator />
+      ) : (
         <MyLink
           title={item}
           textCss={settingsMenuCss.signupTxt}

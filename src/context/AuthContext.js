@@ -4,13 +4,13 @@ import Axios from "../../Axios";
 
 const AuthContext = createContext();
 
-export const useAuthCxt = () => useContext(AuthContext);
+export const getAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+  const authKey = "USER_TOKEN";
+
   const [isLogin, setIsLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
-  const authKey = "USER_TOKEN";
 
   useEffect(() => {
     function checkLoggedIn() {
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
           SecureStore.setItemAsync(authKey, token)
             .then(() => {
-              console.log("[Logged In] Data successfully saved");
+              console.log("[Logged In] Token successfully saved");
 
               setIsLogin(true);
               setIsLoading(false);
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }) => {
 
     SecureStore.deleteItemAsync(authKey)
       .then(() => {
-        console.log("[Logged Out] Data successfully removed");
+        console.log("[Logged Out] Token successfully deleted");
 
         setIsLogin(false);
         setIsLoading(false);

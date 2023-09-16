@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ActivityIndicator } from "react-native";
 import { screens } from "../../../lib/screens";
-import { useAuthCxt } from "../../../context/AuthContext";
+import { getAuthContext } from "../../../context/AuthContext";
 import MyInput from "../../../ui/MyInput";
 import MyButton from "../../../ui/MyButton";
 import MyLink from "../../../ui/MyLink";
@@ -14,7 +14,7 @@ const _facebook = require("../../../../assets/facebook.png");
 const _google = require("../../../../assets/google.png");
 
 const Login = ({ navigation }) => {
-  const { loginHandler } = useAuthCxt();
+  const { isLoading, loginHandler } = getAuthContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,11 +50,15 @@ const Login = ({ navigation }) => {
           onChangeText={(text) => setPassword(text)}
         />
 
-        <MyButton
-          title="Нэвтрэх"
-          buttonCss={loginCss.loginBtn}
-          onPress={() => loginHandler({ email, password })}
-        />
+        {isLoading ? (
+          <ActivityIndicator style={loginCss.loginBtn} />
+        ) : (
+          <MyButton
+            title="Нэвтрэх"
+            buttonCss={loginCss.loginBtn}
+            onPress={() => loginHandler({ email, password })}
+          />
+        )}
 
         <View style={loginCss.linkBox}>
           <MyLink
