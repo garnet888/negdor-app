@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  ActivityIndicator,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { screens } from "../../lib/screens";
 import { colors } from "../../lib/constColors";
-import { useAuthCxt } from "../../context/AuthContext";
+import { getAuthContext } from "../../context/AuthContext";
 import Login from "../../screens/Auth/Login/Login";
 import Signup from "../../screens/Auth/Signup/Signup";
 import Profile from "../../screens/Auth/Profile/Profile";
@@ -40,11 +34,9 @@ const css = StyleSheet.create({
 });
 
 export function AuthStack() {
-  const { isLoading, isLogin } = useAuthCxt();
+  const { isLogin } = getAuthContext();
 
-  return isLoading ? (
-    <ActivityIndicator size="large" style={{ flex: 1 }} />
-  ) : (
+  return (
     <Stack.Navigator
       screenOptions={{
         headerBackTitle: "Буцах",
