@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import MyInput from "../../../ui/MyInput";
@@ -16,11 +16,17 @@ const _reviews = [
 ];
 
 const Reviews = () => {
+  const [review, setReview] = useState("");
+
   return (
     <View style={reviewCss.container}>
       <RatedStars starSize={20} />
 
-      <MyInput placeholder="Сэтгэгдэл..." />
+      <MyInput
+        placeholder="Сэтгэгдэл..."
+        value={review}
+        onChangeText={setReview}
+      />
       <MyButton title="Илгээх" />
 
       <View style={reviewCss.allReviews}>

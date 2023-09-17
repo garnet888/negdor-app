@@ -32,7 +32,7 @@ const Login = ({ navigation }) => {
     <Formik
       initialValues={{ email: "", password: "" }}
       validationSchema={loginSchema}
-      onSubmit={(values) => loginHandler(({ email, password } = values))}
+      onSubmit={(vals) => loginHandler(({ email, password } = vals))}
     >
       {({
         values,
@@ -64,27 +64,21 @@ const Login = ({ navigation }) => {
             <MyInput
               placeholder="И-мэйл хаяг"
               value={values.email}
-              keyboardType="email-address"
+              type="email-address"
               onChangeText={handleChange("email")}
               onBlur={() => setFieldTouched("email")}
+              touched={touched.email}
+              error={errors.email}
             />
-            {touched.email && errors.email && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.email}
-              </Text>
-            )}
             <MyInput
               placeholder="Нууц үг"
               value={values.password}
-              secureTextEntry
+              type="password"
               onChangeText={handleChange("password")}
               onBlur={() => setFieldTouched("password")}
+              touched={touched.password}
+              error={errors.password}
             />
-            {touched.password && errors.password && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.password}
-              </Text>
-            )}
 
             {isLoading ? (
               <ActivityIndicator style={loginCss.loginBtn} />

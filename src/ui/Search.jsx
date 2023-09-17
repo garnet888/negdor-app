@@ -1,25 +1,39 @@
 import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { EvilIcons } from "@expo/vector-icons";
 
-const Search = ({ mainCss, inputCss }) => {
+const Search = ({ value, onChangeText, mainCss, inputCss }) => {
   return (
-    <View style={[css.container, mainCss]}>
+    <View style={[styles.container, mainCss]}>
       <MaterialIcons name="search" size={24} color="black" />
 
-      <TextInput style={[css.input, inputCss]} placeholder="Хайх..." />
+      <TextInput
+        style={[styles.input, inputCss]}
+        placeholder="Хайх..."
+        value={value}
+        onChangeText={onChangeText}
+      />
+      {value && (
+        <TouchableOpacity
+          style={styles.clearText}
+          onPress={() => onChangeText("")}
+        >
+          <EvilIcons name="close-o" size={24} color="gray" />
+        </TouchableOpacity>
+      )}
 
-      <MaterialIcons name="filter-list" size={26} color="black" />
+      <TouchableOpacity>
+        <MaterialIcons name="filter-list" size={26} color="black" />
+      </TouchableOpacity>
     </View>
   );
 };
 
 export default Search;
 
-const css = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    height: 34,
-
     flexDirection: "row",
     alignItems: "center",
 
@@ -31,14 +45,12 @@ const css = StyleSheet.create({
 
   input: {
     flex: 1,
-    height: "100%",
-    
+    height: 34,
 
     fontSize: 16,
-
-    paddingHorizontal: 6,
-    paddingVertical: 4,
-
-    marginRight: 6,
+    marginLeft: 2,
+  },
+  clearText: {
+    marginRight: 4,
   },
 });
