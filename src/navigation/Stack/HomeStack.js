@@ -1,4 +1,5 @@
-import React, { Dimensions, Image, View } from "react-native";
+import React, { useState } from "react";
+import { Dimensions, Image, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { screens } from "../../lib/screens";
 import { colors } from "../../lib/constColors";
@@ -12,6 +13,8 @@ const Stack = createNativeStackNavigator();
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 export function HomeStack() {
+  const [searchText, setSearchText] = useState("");
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -37,7 +40,7 @@ export function HomeStack() {
           headerBackTitleVisible: false,
           headerTitle: () => (
             <View style={{ width: SCREEN_WIDTH - 100 }}>
-              <Search />
+              <Search value={searchText} onChangeText={setSearchText} />
             </View>
           ),
         }}

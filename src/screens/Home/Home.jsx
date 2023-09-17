@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Search from "../../ui/Search";
@@ -9,10 +9,13 @@ import homeCss from "./homeCss";
 const Home = () => {
   const goto = useNavigation();
 
-  const _id = Math.floor(Math.random() * 100);
+  const [searchText, setSearchText] = useState("");
 
   function gotoListing(cateName) {
-    goto.navigate(screens.listingScn, { id: _id, name: cateName });
+    goto.navigate(screens.listingScn, {
+      id: Math.floor(Math.random() * 100),
+      name: cateName,
+    });
   }
 
   return (
@@ -24,7 +27,7 @@ const Home = () => {
         />
 
         <View style={homeCss.searchBox}>
-          <Search />
+          <Search value={searchText} onChangeText={setSearchText} />
         </View>
       </View>
 

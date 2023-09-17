@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -72,89 +72,68 @@ const Signup = () => {
               value={values.username}
               onChangeText={handleChange("username")}
               onBlur={() => setFieldTouched("username")}
+              touched={touched.username}
+              error={errors.username}
             />
-            {touched.username && errors.username && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.username}
-              </Text>
-            )}
 
             <MyInput
               placeholder="Овог"
               value={values.lastname}
               onChangeText={handleChange("lastname")}
               onBlur={() => setFieldTouched("lastname")}
+              touched={touched.lastname}
+              error={errors.lastname}
             />
-            {touched.lastname && errors.lastname && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.lastname}
-              </Text>
-            )}
 
             <MyInput
               placeholder="Нэр"
               value={values.firstname}
               onChangeText={handleChange("firstname")}
               onBlur={() => setFieldTouched("firstname")}
+              touched={touched.firstname}
+              error={errors.firstname}
             />
-            {touched.firstname && errors.firstname && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.firstname}
-              </Text>
-            )}
 
             <MyInput
               placeholder="Утасны дугаар"
               value={values.phonenumber}
-              keyboardType="number-pad"
+              type="number-pad"
               maxLength={8}
               onChangeText={handleChange("phonenumber")}
               onBlur={() => setFieldTouched("phonenumber")}
+              touched={touched.phonenumber}
+              error={errors.phonenumber}
             />
-            {touched.phonenumber && errors.phonenumber && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.phonenumber}
-              </Text>
-            )}
 
             <MyInput
               placeholder="И-мэйл хаяг"
               value={values.email}
-              keyboardType="email-address"
+              type="email-address"
               onChangeText={handleChange("email")}
               onBlur={() => setFieldTouched("email")}
+              touched={touched.email}
+              error={errors.email}
             />
-            {touched.email && errors.email && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.email}
-              </Text>
-            )}
 
             <MyInput
               placeholder="Нууц үг"
               value={values.password}
-              secureTextEntry
+              type="password"
               onChangeText={handleChange("password")}
               onBlur={() => setFieldTouched("password")}
+              touched={touched.password}
+              error={errors.password}
             />
-            {touched.password && errors.password && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.password}
-              </Text>
-            )}
 
             <MyInput
               placeholder="Нууц үг давтах"
               value={values.repassword}
-              secureTextEntry
+              type="password"
               onChangeText={handleChange("repassword")}
               onBlur={() => setFieldTouched("repassword")}
+              touched={touched.repassword}
+              error={errors.repassword}
             />
-            {touched.repassword && errors.repassword && (
-              <Text style={{ color: "red", marginTop: -10 }}>
-                {errors.repassword}
-              </Text>
-            )}
 
             <MyButton
               title="Бүртгүүлэх"
