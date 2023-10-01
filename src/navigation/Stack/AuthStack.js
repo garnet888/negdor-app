@@ -59,7 +59,7 @@ export function AuthStack() {
             // component={AccountSettingsZZZ}
             component={SettingsMenu}
             options={{
-              headerTitle: () => <Text style={css.menuHeaderTitle}>Меню</Text>,
+              headerTitle: () => <Text style={css.menuHeaderTitle}>Цэс</Text>,
             }}
           />
           <Stack.Screen
