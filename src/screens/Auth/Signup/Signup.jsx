@@ -17,11 +17,11 @@ const Signup = () => {
   const signupSchema = Yup.object().shape({
     username: Yup.string().required("Хоосон байна!"),
     firstname: Yup.string()
-      .matches(/^[a-zA-Z ]*$/, "Зөвхөн үсэг бичнэ үү!")
+      .matches(/^[a-zA-Z]*$/, "Зөвхөн үсэг бичнэ үү!")
       .matches(/^[A-Z][a-z0-9_-]*$/, "Эхний үсэг том байх ёстой!")
       .required("Хоосон байна!"),
     lastname: Yup.string()
-      .matches(/^[a-zA-Z ]*$/, "Зөвхөн үсэг бичнэ үү!")
+      .matches(/^[a-zA-Z]*$/, "Зөвхөн үсэг бичнэ үү!")
       .matches(/^[A-Z][a-z0-9_-]*$/, "Эхний үсэг том байх ёстой!")
       .required("Хоосон байна!"),
     phonenumber: Yup.string()
