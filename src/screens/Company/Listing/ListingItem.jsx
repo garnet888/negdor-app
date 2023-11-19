@@ -35,7 +35,7 @@ const ListingItem = ({ data, goto }) => {
     >
       <Image
         style={listingItemCss.logo}
-        source={data.logo ? { uri: data.logo } : noIMG}
+        source={data?.logo ? { uri: data.logo } : noIMG}
       />
 
       <View style={listingItemCss.content}>
@@ -45,17 +45,19 @@ const ListingItem = ({ data, goto }) => {
 
         {data.score ? (
           <RatedStars
-            rate={data.score}
+            rate={data?.score ? data.score : 0}
             // peopleCount={Math.floor(Math.random() * 1000)}
           />
         ) : null}
 
         <View style={listingItemCss.types}>
-          {data.categories.slice(0, 2).map((cate, idx) => (
-            <Text key={idx} style={listingItemCss.types_item}>
-              {cate.value}
-            </Text>
-          ))}
+          {data.categories?.length > 0
+            ? data.categories.slice(0, 2).map((cate, idx) => (
+                <Text key={idx} style={listingItemCss.types_item}>
+                  {cate.value}
+                </Text>
+              ))
+            : null}
         </View>
 
         <View style={listingItemCss.isOpen}>

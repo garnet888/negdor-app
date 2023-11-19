@@ -45,19 +45,19 @@ const Detail = ({ route, navigation }) => {
       <View style={detailCss.photos}>
         <Image
           style={detailCss.banner}
-          source={data.banner ? { uri: data.banner } : noIMG}
+          source={data?.banner ? { uri: data.banner } : noIMG}
         />
 
         <View style={detailCss.logoBox}>
           <Image
             style={detailCss.logo}
-            source={data.logo ? { uri: data.logo } : noIMG}
+            source={data?.logo ? { uri: data.logo } : noIMG}
           />
         </View>
       </View>
 
       <View style={detailCss.content}>
-        <CompanyDesc navigation={navigation} data={data} />
+        <CompanyDesc data={data} navigation={navigation} />
 
         <>
           <Text style={detailCss.title}>Үнэлгээ</Text>

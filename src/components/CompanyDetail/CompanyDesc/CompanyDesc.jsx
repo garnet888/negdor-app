@@ -15,7 +15,7 @@ const CompanyDesc = ({ data }) => {
     let link = "";
 
     if (data.socials?.find((item) => item.plf === type)?.link) {
-      const rawLink = data.socials?.find((item) => item.plf === type).link;
+      const rawLink = data.socials.find((item) => item.plf === type).link;
 
       if (String(rawLink).search("http") > -1) {
         link = rawLink;
@@ -32,7 +32,7 @@ const CompanyDesc = ({ data }) => {
       <Text style={companyDescCss.name}>{data.name}</Text>
 
       <View style={companyDescCss.infos}>
-        {data.categories.length > 0 ? (
+        {data.categories?.length > 0 ? (
           <Text>
             {data.categories.map((item, idx) =>
               data.categories.length === idx + 1
@@ -43,7 +43,7 @@ const CompanyDesc = ({ data }) => {
           </Text>
         ) : null}
 
-        {data.score ? (
+        {data?.score ? (
           <Text>
             <AntDesign name="star" size={16} color="orange" />
             {" " + data.score}
@@ -56,7 +56,7 @@ const CompanyDesc = ({ data }) => {
           <Text> &bull; </Text>
         </Text>
 
-        {data.timeTable ? (
+        {data?.timeTable ? (
           <Text
             style={
               companyIsOpenChecker(data.timeTable, true)
@@ -71,7 +71,7 @@ const CompanyDesc = ({ data }) => {
           </Text>
         ) : null}
 
-        {data.phonenumbers.length > 0 ? (
+        {data?.phonenumbers?.length > 0 ? (
           <Text>
             {data.phonenumbers.map((item, idx) =>
               data.phonenumbers.length === idx + 1 ? item : item + ", "
@@ -80,7 +80,7 @@ const CompanyDesc = ({ data }) => {
           </Text>
         ) : null}
 
-        {data.emails.length > 0 ? (
+        {data?.emails?.length > 0 ? (
           <Text>
             {data.emails.map((item, idx) =>
               data.emails.length === idx + 1 ? item : item + ", "
@@ -89,11 +89,11 @@ const CompanyDesc = ({ data }) => {
         ) : null}
       </View>
 
-      {!data.shortDescription || data.shortDescription === "empty" ? null : (
+      {!data?.shortDescription || data?.shortDescription === "empty" ? null : (
         <Text>{data.shortDescription}</Text>
       )}
 
-      {data.socials.length > 0 ? (
+      {data?.socials?.length > 0 ? (
         <View style={companyDescCss.socials}>
           {/* <TouchableOpacity
             onPress={() => navigation.navigate(screens.locationScn)}
