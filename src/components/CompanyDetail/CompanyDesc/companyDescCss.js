@@ -14,6 +14,7 @@ export default StyleSheet.create({
   infos: {
     flexDirection: "row",
     alignItems: "center",
+    flexWrap: "wrap",
   },
   openTxt: {
     color: colors.openColor,
@@ -26,7 +27,9 @@ export default StyleSheet.create({
 
   socials: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
+
+    marginTop: 10,
   },
 
   icon: {

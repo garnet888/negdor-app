@@ -12,6 +12,12 @@ export default StyleSheet.create({
     marginVertical: 10,
   },
 
+  errorText: {
+    fontSize: 18,
+    textAlign: "center",
+    color: "orange",
+  },
+
   list: {
     gap: 10,
   },

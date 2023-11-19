@@ -1,27 +1,39 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { View, Text, RefreshControl, FlatList } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { renderContent } from "../../../lib/otherFuncs";
+import Axios from "../../../../Axios";
 import ListingItem from "./ListingItem";
 
 import listingCss from "./listingCss";
 
 const Listing = () => {
   const goto = useNavigation();
-  const {
-    params: { id, name },
-    
-  } = useRoute();
+  const router = useRoute();
+  const { name } = router;
 
+  const [data, setData] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
-  const _DATA = [...Array(11)].map((_, idx) => {
-    const id = idx + 1;
+  useEffect(() => {
+    Axios.get(`/organization/list`)
+      .then((res) => {
+        if (res.data) {
+          setData(res.data.data.list);
 
-    return {
-      id,
-      name: "Organization Name " + id,
-    };
-  });
+          setIsLoading(false);
+        } else {
+          setIsError(true);
+          setIsLoading(false);
+        }
+      })
+      .catch(() => {
+        setIsError(true);
+        setIsLoading(false);
+      });
+  }, [refreshing]);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -33,19 +45,22 @@ const Listing = () => {
 
   return (
     <View style={listingCss.container}>
-      <Text style={listingCss.title}>
-        {name} ID: {id}
-      </Text>
+      <Text style={listingCss.title}>{name}</Text>
 
-      <FlatList
-        contentContainerStyle={listingCss.list}
-        data={_DATA}
-        ListEmptyComponent={() => <Text>Хоосон байна</Text>}
-        renderItem={({ item }) => <ListingItem data={item} goto={goto} />}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      />
+      {renderContent(
+        { isLoading, isError },
+        <FlatList
+          contentContainerStyle={listingCss.list}
+          data={data}
+          ListEmptyComponent={() => (
+            <Text style={listingCss.errorText}>Хоосон байна</Text>
+          )}
+          renderItem={({ item }) => <ListingItem data={item} goto={goto} />}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        />
+      )}
     </View>
   );
 };

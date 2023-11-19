@@ -20,18 +20,21 @@ export default StyleSheet.create({
 
   content: {
     flex: 1,
+    justifyContent: "center",
     paddingHorizontal: 10,
   },
   name: {
     fontSize: 16,
     fontWeight: "500",
+    marginBottom: 4,
   },
 
   types: {
     flexDirection: "row",
     gap: 4,
 
-    marginTop: 4,
+    marginTop: 6,
+    marginBottom: 4,
   },
   types_item: {
     backgroundColor: colors.gray,
